@@ -1,0 +1,16 @@
+{
+	"histogram_techniques": {
+		"brightness": {
+			"fn_name": "change_brightness",
+			"signature": ["image", "brightness"],
+			"input": ["IMG", "Z"],
+			"output": ["IMG"]
+		},
+		"contrast": {
+			"fn_name": "change_contrast",
+			"signature": ["image", "contrast"],
+			"input": ["IMG", "Z"],
+			"output": ["IMG"]
+		}
+	}
+}
