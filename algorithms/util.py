@@ -1,4 +1,5 @@
 from PIL import Image
+from rich import print
 import numpy as np
 import json
 
@@ -19,12 +20,14 @@ def array_to_img(array):
 def img_to_array(img):
     return np.asarray(img)
 
+
 def find_question_in_schema(question):
     for grp in schema.values():
         if question in grp:
             return grp[question]
 
     raise Exception(f"{question} not found.")
+
 
 def fetch_question_schema():
     pass
@@ -41,10 +44,19 @@ def preheat(question):
     cases = fetch_test_cases(question)
 
     def wrapper(fn):
-        for each in cases:
-            result = fn(*[img_data, *each])
+        if len(cases) > 0:
+            for each in cases:
+                result = fn(*[img_data, *each])
+                print(metadata["output"])
 
-            if metadata['output'][0] == 'IMG':
+                if metadata["output"][0] == "IMG":
+                    image = array_to_img(result)
+                    image.show()
+                else:
+                    print(result)
+        else:
+            result = fn(img_data)
+            if metadata["output"][0] == "IMG":
                 image = array_to_img(result)
                 image.show()
             else:

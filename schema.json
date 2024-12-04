@@ -11,6 +11,38 @@
 			"signature": ["image", "contrast"],
 			"input": ["IMG", "Z"],
 			"output": ["IMG"]
+		},
+		"histogram": {
+			"fn_name": "generate_histogram",
+			"signature": ["image"],
+			"input": ["IMG"],
+			"output": ["D"]
+		},
+		"histogram_equalization": {
+			"fn_name": "equalize_histogram",
+			"signature": ["image"],
+			"input": ["IMG"],
+			"output": ["IMG"]
+		},
+		"histogram_specification": {
+			"fn_name": "create_histogram_specification",
+			"signature": ["image"],
+			"input": ["IMG"],
+			"output": ["IMG"]
+		}
+	},
+	"graphics_algorithms": {
+		"flip_vertical": {
+			"fn_name": "flip_image_vertical",
+			"signature": ["image"],
+			"input": ["IMG"],
+			"output": ["IMG"]
+		},
+		"rotate_90": {
+			"fn_name": "rotate_image",
+			"signature": ["image"],
+			"input": ["IMG"],
+			"output": ["IMG"]
 		}
 	}
 }
